@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour
     public float minY;
     public float maxY;
     public int score;
+    public bool isShooting;
     public Text scoreText;
     public GameObject UIWin;
+    public GameObject UILose;
 
     private static PlayerController instance;
 
@@ -41,7 +43,8 @@ public class PlayerController : MonoBehaviour
         maxX = mainCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
         minY = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         maxY = mainCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
-
+        //Bullet();
+        isShooting = true;
     }
 
     void Update()
@@ -73,6 +76,7 @@ public class PlayerController : MonoBehaviour
         if(score == 16)
         {
             Invoke("UIWinActice", 2f);
+            isShooting = false;
         }
     }
 
@@ -81,5 +85,14 @@ public class PlayerController : MonoBehaviour
         UIWin.SetActive(true);
     }
 
-   
+    public void DelayUIWin()
+    {
+        Invoke("UILoseActice", 2f);
+    }
+    public void UILoseActice()
+    {
+        UILose.SetActive(true);
+    }
+
+
 }

@@ -23,9 +23,21 @@ public class EnemyController : MonoBehaviour
             GameObject explosion = Instantiate(enemyExplosionAnim, transform.position, Quaternion.identity);
             Destroy(explosion, 1f);
             PlayerController.Instance.UpdateScore();
-        }
-        
-    }
 
     
-}
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            PlayerController.Instance.isShooting = false;
+            Destroy(collision.transform.gameObject);
+            GameObject explosion = Instantiate(enemyExplosionAnim, collision.transform.position, Quaternion.identity);
+            Destroy(explosion, 1f);
+            PlayerController.Instance.UILoseActice();
+        }
+
+    }
+
+  
+
+
+    }
