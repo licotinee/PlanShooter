@@ -8,7 +8,11 @@ public class EnemyMoveManager : MonoBehaviour
     [SerializeField] public List<Transform> listPosRhombus;
     [SerializeField] public List<Transform> listPosTriangle;
     [SerializeField] public List<Transform> listPosRectangle;
+    [SerializeField] public GameObject EnemyBoss;
+    [SerializeField] public Transform PosEnemyBossSpawn;
+
     public GameObject playerShooting;
+
     
     void Start()
     {
@@ -18,7 +22,10 @@ public class EnemyMoveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if(listEnemy.Count == 0)
+        //{
+        //    Instantiate(EnemyBoss, PosEnemyBossSpawn.transform.position, Quaternion.identity);
+        //}
     }
 
     private void EnemyMove1()

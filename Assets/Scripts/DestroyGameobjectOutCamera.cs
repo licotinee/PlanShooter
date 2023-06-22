@@ -8,6 +8,9 @@ public class DestroyGameobjectOutCamera : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
+        if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "BulletEnemy")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
